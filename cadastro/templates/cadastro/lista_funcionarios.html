@@ -1,1 +1,16 @@
-<h2>Lista Pessoas</h2>
+<h2>Lista de Funcionario</h2>
+
+<ul> 
+{% for funcionarios in funcionario %}
+    <li> {{ funcionarios.nome }} </li>
+{% endfor %}
+</ul>
+
+
+<form action="{% url 'cadastro_funcionario_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+</form>

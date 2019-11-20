@@ -1,0 +1,9 @@
+<h2>Lista de Alugueis Realizados</h2>
+
+<ul> 
+    <li>{{ 'Roupa' }} - {{ 'Cliente' }} - {{ 'Valor Total' }}</li><br>
+    {% for alugueis in aluguel %}
+        <li> {{ alugueis.roupa}} - {{alugueis.cliente}} - {{alugueis.total}} </li><hr>
+    {% endfor %}
+</ul>
+
