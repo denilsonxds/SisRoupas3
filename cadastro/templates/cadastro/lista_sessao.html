@@ -1,0 +1,15 @@
+<h2>Lista de Sessões Roupas</h2>
+
+<ul> 
+{% for sessoes in sessao %}
+    <li> {{ sessoes.sessao }} </li>
+{% endfor %}
+</ul>
+
+<form action="{% url 'cadastro_sessao_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+</form>

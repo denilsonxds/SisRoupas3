@@ -1,0 +1,15 @@
+<h2>Lista de Marca de Roupas</h2>
+
+<ul> 
+{% for marcaroupas in marcaroupa %}
+    <li> {{ marcaroupas.marca }} </li>
+{% endfor %}
+</ul>
+
+<form action="{% url 'cadastro_marcaroupa_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+</form>
