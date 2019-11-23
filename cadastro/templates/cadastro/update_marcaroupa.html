@@ -1,0 +1,9 @@
+<h2>Atualizando a Marca da Roupa: {{ marcaroupa }}</h2>
+
+<form action="{% url 'cadastro_marcaroupa_update' marcaroupa.id %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"> Cadastrar </button>
+</form>

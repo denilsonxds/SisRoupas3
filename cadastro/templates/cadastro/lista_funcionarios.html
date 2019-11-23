@@ -2,8 +2,10 @@
 
 <ul> 
 {% for funcionarios in funcionario %}
-    <li> {{ funcionarios.nome }} </li>
-{% endfor %}
+    <li>
+    <a href="{% url 'cadastro_funcionario_update' funcionarios.id %}"> {{ funcionarios.nome }} </a>
+    </li>
+{% endfor %} 
 </ul>
 
 

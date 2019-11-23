@@ -1,0 +1,9 @@
+<h2>Atualizando a Roupa: {{ roupa }}</h2>
+
+<form action="{% url 'cadastro_roupa_update' roupa.id %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"> Cadastrar </button>
+</form>

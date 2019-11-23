@@ -1,0 +1,9 @@
+<h2>Atualizando o Funcionário: {{ funcionario }}</h2>
+
+<form action="{% url 'cadastro_funcionario_update' funcionario.id %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"> Cadastrar </button>
+</form>

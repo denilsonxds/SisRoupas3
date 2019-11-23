@@ -2,7 +2,9 @@
 
 <ul> 
 {% for sessoes in sessao %}
-    <li> {{ sessoes.sessao }} </li>
+    <li>
+        <a href="{% url 'cadastro_sessao_update' sessoes.id %}"> {{ sessoes.sessao }} </a>
+    </li>
 {% endfor %}
 </ul>
 

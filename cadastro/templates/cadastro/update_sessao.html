@@ -1,0 +1,9 @@
+<h2>Atualizando a Sesão: {{ sessao }}</h2>
+
+<form action="{% url 'cadastro_sessao_update' sessao.id %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"> Cadastrar </button>
+</form>

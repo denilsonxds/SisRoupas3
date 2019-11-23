@@ -2,7 +2,9 @@
 
 <ul> 
 {% for marcaroupas in marcaroupa %}
-    <li> {{ marcaroupas.marca }} </li>
+    <li>
+        <a href="{% url 'cadastro_marcaroupa_update' marcaroupas.id %}"> {{ marcaroupas.marca }} </a>
+    </li>
 {% endfor %}
 </ul>
 

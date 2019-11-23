@@ -2,7 +2,9 @@
 
 <ul> 
 {% for tiporoupas in tiporoupa %}
-    <li> {{ tiporoupas.tipo_roupa }} </li>
+    <li>
+        <a href="{% url 'cadastro_tiporoupa_update' tiporoupas.id %}"> {{ tiporoupas.tipo_roupa }} </a>
+    </li>
 {% endfor %}
 </ul>
 

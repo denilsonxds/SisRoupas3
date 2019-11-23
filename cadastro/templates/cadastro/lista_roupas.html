@@ -2,7 +2,9 @@
 
 <ul> 
 {% for roupas in roupa %}
-    <li> {{ roupas.nome_roupa }} </li>
+    <li> 
+        <a href="{% url 'cadastro_roupa_update' roupas.id %}"> {{ roupas.nome_roupa }} </a>
+    </li>
 {% endfor %}
 </ul>
 

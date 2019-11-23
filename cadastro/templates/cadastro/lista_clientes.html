@@ -2,7 +2,9 @@
 
 <ul> 
     {% for clientes in cliente %}
-        <li> {{ clientes.nome }} </li>
+        <li> 
+            <a href="{% url 'cadastro_cliente_update' clientes.id %}"> {{ clientes.nome }} </a>
+        </li>
     {% endfor %}
 </ul>
 

@@ -1,0 +1,9 @@
+<h2>Atualizando o Cliente: {{ cliente }}</h2>
+
+<form action="{% url 'cadastro_cliente_update' cliente.id %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"> Cadastrar </button>
+</form>
