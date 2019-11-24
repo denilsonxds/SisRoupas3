@@ -37,6 +37,14 @@ def funcionario_update(request, id):
     else:
         return render(request, 'cadastro/update_funcionario.html', data)
 
+def funcionario_delete(request, id):
+    funcionario = Funcionario.objects.get(id=id)
+    if request.method == 'POST':
+        funcionario.delete()
+        return redirect('cadastro_lista_funcionarios')
+    else:
+        return render(request, 'cadastro/delete_confirm.html', {'obj': funcionario})
+
 #-------------Cliente----------------------
 
 
@@ -66,6 +74,15 @@ def cliente_update(request, id):
     else:
         return render(request, 'cadastro/update_cliente.html', data)
 
+def cliente_delete(request, id):
+    cliente = Cliente.objects.get(id=id)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect('cadastro_lista_clientes')
+    else:
+        return render(request, 'cadastro/delete_confirm.html', {'obj': cliente})
+
+
 #----------Roupas --------------
 
 def lista_roupas(request):
@@ -94,6 +111,13 @@ def roupa_update(request, id):
     else:
         return render(request, 'cadastro/update_roupa.html', data)
 
+def roupa_delete(request, id):
+    roupa = Roupa.objects.get(id=id)
+    if request.method == 'POST':
+        roupa.delete()
+        return redirect('cadastro_lista_roupas')
+    else:
+        return render(request, 'cadastro/delete_confirm.html', {'obj': roupa})
 #------------MarcaRoupas---------
 
 def lista_marcaroupas(request):
@@ -121,6 +145,14 @@ def marcaroupa_update(request, id):
             return redirect('cadastro_lista_marcaroupas')
     else:
         return render(request, 'cadastro/update_marcaroupa.html', data)
+
+def marcaroupa_delete(request, id):
+    marcaroupa = MarcaRoupa.objects.get(id=id)
+    if request.method == 'POST':
+        marcaroupa.delete()
+        return redirect('cadastro_lista_marcaroupas')
+    else:
+        return render(request, 'cadastro/delete_confirm.html', {'obj': marcaroupa})
 
 #-----------TipoRoupas----------
 
@@ -150,6 +182,14 @@ def tiporoupa_update(request, id):
     else:
         return render(request, 'cadastro/update_tiporoupa.html', data)
 
+def tiporoupa_delete(request, id):
+    tiporoupa = TipoRoupa.objects.get(id=id)
+    if request.method == 'POST':
+        tiporoupa.delete()
+        return redirect('cadastro_lista_tiporoupas')
+    else:
+        return render(request, 'cadastro/delete_confirm.html', {'obj': tiporoupa})
+
 #--------Sessao--------------
 
 def lista_sessao(request):
@@ -177,3 +217,11 @@ def sessao_update(request, id):
             return redirect('cadastro_lista_sessao')
     else:
         return render(request, 'cadastro/update_sessao.html', data)
+
+def sessao_delete(request, id):
+    sessao = Sessao.objects.get(id=id)
+    if request.method == 'POST':
+        sessao.delete()
+        return redirect('cadastro_lista_sessao')
+    else:
+        return render(request, 'cadastro/delete_confirm.html', {'obj': sessao})
