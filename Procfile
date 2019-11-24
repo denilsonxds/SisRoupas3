@@ -1,0 +1,1 @@
+web: gunicorn Sisroupas.wsgi --log-file -
