@@ -1,24 +1,33 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block main %}
 
-<h2>Lista de Funcionario</h2>
+<div class="row">
+    <div class="col">
+        <h1>Lista de Funcionarios</h1>
+    </div>
+</div>
 
-<ul> 
-{% for funcionarios in funcionario %}
-    <li>
-    <a href="{% url 'cadastro_funcionario_update' funcionarios.id %}"> {{ funcionarios.nome }} </a>
-    </li>
-{% endfor %} 
-</ul>
+<div class="row">
+    <div class="col-sm-6">
+        <form action="{% url 'cadastro_funcionario_novo' %}" method="POST">
+            {% csrf_token %}
 
+            {{ form|bootstrap }}
 
-<form action="{% url 'cadastro_funcionario_novo' %}" method="POST">
-    {% csrf_token %}
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>  
+    </div>         
 
-    {{ form.as_p }}
-
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-</form>
- 
- {% endblock main %}
+    <div class="col-sm-5">
+        <ul> 
+            {% for funcionarios in funcionario %}
+                <li>
+                    <a href="{% url 'cadastro_funcionario_update' funcionarios.id %}"> {{ funcionarios.nome }} </a>
+                </li>
+            {% endfor %} 
+        </ul>
+    </div> 
+</div>
+{% endblock main %}

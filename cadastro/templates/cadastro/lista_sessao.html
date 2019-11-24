@@ -1,23 +1,33 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block main %}
 
-<h2>Lista de Sessões Roupas</h2>
+<div class="row">
+    <div class="col">
+        <h1>Lista de Sessões de Roupas</h1>
+    </div>
+</div>
 
-<ul> 
-{% for sessoes in sessao %}
-    <li>
-        <a href="{% url 'cadastro_sessao_update' sessoes.id %}"> {{ sessoes.sessao }} </a>
-    </li>
-{% endfor %}
-</ul>
+<div class="row">
+    <div class="col-sm-6">
+        <form action="{% url 'cadastro_sessao_novo' %}" method="POST">
+            {% csrf_token %}
 
-<form action="{% url 'cadastro_sessao_novo' %}" method="POST">
-    {% csrf_token %}
+            {{ form.as_p }}
 
-    {{ form.as_p }}
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+    <div class="col-sm-6">
+        <ul> 
+        {% for sessoes in sessao %}
+            <li>
+                <a href="{% url 'cadastro_sessao_update' sessoes.id %}"> {{ sessoes.sessao }} </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+<div>
 
-    <button type="submit">Cadastrar</button>
-</form>
-
-{% endclock main %}
+{% endblock main %}

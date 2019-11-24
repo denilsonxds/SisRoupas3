@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block main %}
 
-<h2>Atualizando o Funcionário: {{ funcionario }}</h2>
+<div class="row">
+        <h2>Atualizando o Funcionário: {{ funcionario }}</h2>
+        <div class="col-6">
+                <form action="{% url 'cadastro_funcionario_update' funcionario.id %}" method="POST">
+                        {% csrf_token %}
 
-<form action="{% url 'cadastro_funcionario_update' funcionario.id %}" method="POST">
-        {% csrf_token %}
+                        {{ form|bootstrap }}
 
-        {{ form.as_p }}
-
-        <button type="submit"> Cadastrar </button>
-</form>
-
-<a href="{% url 'cadastro_funcionario_delete' funcionario.id %}">Deletar</a>
+                        <button type="submit" class="btn btn-success"> Cadastrar </button>
+                        <a href="{% url 'cadastro_funcionario_delete' funcionario.id %}"
+                        class="btn btn-danger">Deletar</a>
+                </form>
+        </div>
+</div>
 
 {% endblock main %}
