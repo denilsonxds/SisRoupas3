@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load bootstrap %}
 
 {% block main %}
 
@@ -10,13 +10,13 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-3">
         <form action="{% url 'cadastro_cliente_novo' %}" method="POST">
             {% csrf_token %}
     
-            {{ form.as_p }}
+            {{ form|bootstrap }}
     
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="btn btn-info">Cadastrar</button>
         </form>
     </div>
 

@@ -55,6 +55,7 @@ class Roupa(models.Model):
     tipo_roupa = models.ForeignKey(TipoRoupa, on_delete="CASCADE")
     sessao = models.ForeignKey(Sessao, on_delete='CASCADE')
     qtd_estoque = models.IntegerField(default=0)
+    img_roupa = models.ImageField(width_field=10,height_field=10, blank=True, null=True)
     disponivel = False
 
     def disponibilidade(self):
