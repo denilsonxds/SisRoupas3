@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
 <h2>Atualizando o Funcionário: {{ funcionario }}</h2>
 
 <form action="{% url 'cadastro_funcionario_update' funcionario.id %}" method="POST">
@@ -9,3 +13,5 @@
 </form>
 
 <a href="{% url 'cadastro_funcionario_delete' funcionario.id %}">Deletar</a>
+
+{% endblock main %}
