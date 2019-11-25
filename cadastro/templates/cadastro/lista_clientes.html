@@ -1,22 +1,61 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
 
+{% block menu %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'cadastro_home' %}">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Roupas</a>
+            <div class="dropdown-menu">
+
+                <a class="dropdown-item" href="{% url 'cadastro_lista_roupas'%}">Roupas</a>
+                <a class="dropdown-item" href="{% url 'cadastro_lista_marcaroupas'%}">Marca da Roupa</a>
+                <a class="dropdown-item" href="{% url 'cadastro_lista_tiporoupas'%}">Tipo de Roupa</a>
+                <a class="dropdown-item" href="{% url 'cadastro_lista_sessao'%}">Sessão da Roupa</a>
+
+                
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'cadastro_lista_clientes'%}">Clientes</a>
+                <a class="dropdown-item" href="#">Aluguel</a>
+                <a class="dropdown-item" href="{% url 'cadastro_lista_funcionarios'%}">Funcionarios</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Locação</a>
+        </li>
+    
+    </ul>
+{% endblock menu %}
+
 {% block main %}
 
 <div class="row">
-    <div class="col-12">
+    <div class="col">
         <h1>Lista de Clientes</h1>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-6">
         <form action="{% url 'cadastro_cliente_novo' %}" method="POST">
             {% csrf_token %}
     
             {{ form|bootstrap }}
     
-            <button type="submit" class="btn btn-info">Cadastrar</button>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
         </form>
     </div>
 

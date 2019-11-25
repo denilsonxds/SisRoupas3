@@ -4,7 +4,11 @@
 {% block main %}
 
 <div class="row">
-        <h2>Atualizando o Tipo de Roupa: {{ tiporoupa }}</h2>
+        <div class="col-6">
+                <h2>Atualizando o Tipo de Roupa: {{ tiporoupa }}</h2>
+        </div>
+</div>
+<div class="row">
         <div class="col-6">
                 <form action="{% url 'cadastro_tiporoupa_update' tiporoupa.id %}" method="POST">
                         {% csrf_token %}
