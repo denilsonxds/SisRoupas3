@@ -1,4 +1,9 @@
 .footer-website{
     bottom: 0;
     position: absolute;
+    align-content: center;
+}
+
+.row-space{
+    margin-top: 25px;
 }
