@@ -5,4 +5,6 @@ from .views import *
 
 urlpatterns = [
     url(r'^$', home, name='website_home'),
+    url(r'^sobre$', sobre, name='website_sobre'),
+
 ]
