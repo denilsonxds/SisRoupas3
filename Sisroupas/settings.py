@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',
     'cadastro',
-    'financeiro'
+    'financeiro',
+    'website',
 ]
 
 MIDDLEWARE = [
