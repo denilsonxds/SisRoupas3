@@ -37,4 +37,6 @@ urlpatterns = [
     url(r'^sessao_delete(?P<id>\d+)/$', sessao_delete, name='cadastro_sessao_delete'),
 
     
+
+    
 ]

@@ -36,7 +36,18 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Locação</a>
         </li>
-    
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" >Olá, {{ user }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+        {% endif %}
     </ul>
 {% endblock menu %}
 
@@ -58,15 +69,27 @@
             <button type="submit" class="btn btn-success">Cadastrar</button>
         </form>
     </div>
-    <div class="col-sm-6">
-        <ul> 
-        {% for tiporoupas in tiporoupa %}
-            <li>
-                <a href="{% url 'cadastro_tiporoupa_update' tiporoupas.id %}">
-                {{ tiporoupas.tipo_roupa }} </a>
-            </li>
-        {% endfor %}
-        </ul>
+    
+    <div class="col-6">
+        <h1> Lista de Tipos de Roupas </h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Tipo de Roupa</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tiporoupas in tiporoupa %}
+                <tr>
+                    <th scope="row">{{ tiporoupas.id }}</th>
+                    <td>{{ tiporoupas.tipo_roupa }}</td>
+                    <td><a href="{% url 'cadastro_tiporoupa_update' tiporoupas.id %}"> Editar </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 

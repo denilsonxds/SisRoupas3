@@ -36,20 +36,31 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Locação</a>
         </li>
-    
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" >Olá, {{ user }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+        {% endif %}
     </ul>
 {% endblock menu %}
 
 {% block main %}
 
 <div class="row">
-    <div class="col">
-        <h1>Lista de Clientes</h1>
+    <div class="col-5">
+        <h1> Cadastro de Clientes </h1>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-5">
         <form action="{% url 'cadastro_cliente_novo' %}" method="POST">
             {% csrf_token %}
     
@@ -60,13 +71,29 @@
     </div>
 
     <div class="col-6">
-        <ul> 
-            {% for clientes in cliente %}
-                <li> 
-                    <a href="{% url 'cadastro_cliente_update' clientes.id %}"> {{ clientes.nome }} </a>
-                </li>
-            {% endfor %}
-        </ul>
+        <h1> Lista de Clientes </h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for clientes in cliente %}
+                <tr>
+                    <th scope="row">{{ clientes.id }}</th>
+                    <td>{{ clientes.nome }}</td>
+                    <td>{{ clientes.cpf }}</td>
+                    <td>{{ clientes.telefone }}</td>
+                    <td><a href="{% url 'cadastro_cliente_update' clientes.id %}"> Editar </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 
