@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap %}
 
 {% block menu %}
     <ul class="nav nav-tabs">
@@ -8,7 +7,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Roupas</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Roupas</a>
             <div class="dropdown-menu">
 
                 <a class="dropdown-item" href="{% url 'cadastro_lista_roupas'%}">Roupas</a>
@@ -54,43 +53,12 @@
 
 {% block main %}
 
-<div class="row">
-    <div class="col">
-        <h1>Lista de Sessões de Roupas</h1>
-    </div>
-</div>
+<h2>Tem certeza que deseja deletar {{obj}} ?</h2>
 
-<div class="row">
-    <div class="col-sm-6">
-        <form action="{% url 'cadastro_sessao_novo' %}" method="POST">
-            {% csrf_token %}
+<form method='POST'>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Deletar</button>
 
-            {{ form.as_p }}
-
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </form>
-    </div>
-    <div class="col-6">
-        <h1> Lista das Sessões de Roupas </h1>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Sessão</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for sessoes in sessao %}
-                <tr>
-                    <th scope="row">{{ sessoes.id }}</th>
-                    <td>{{ sessoes.sessao }}</td>
-                    <td><a href="{% url 'cadastro_sessao_update' sessoes.id %}"> Editar </a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-<div>
+</form>
 
 {% endblock main %}

@@ -8,7 +8,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Roupas</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Roupas</a>
             <div class="dropdown-menu">
 
                 <a class="dropdown-item" href="{% url 'cadastro_lista_roupas'%}">Roupas</a>
@@ -23,7 +23,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
+            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{% url 'cadastro_lista_clientes'%}">Clientes</a>
                 
@@ -55,42 +55,22 @@
 {% block main %}
 
 <div class="row">
-    <div class="col">
-        <h1>Lista de Sessões de Roupas</h1>
-    </div>
+        <div class="col-12">
+                <h2>Atualizando a Aluguel: {{ aluguel }}</h2>
+        </div>
 </div>
-
 <div class="row">
-    <div class="col-sm-6">
-        <form action="{% url 'cadastro_sessao_novo' %}" method="POST">
-            {% csrf_token %}
+        <div class="col-6">
+                <form action="{% url 'financeiro_aluguel_update' aluguel.id %}" method="POST">
+                        {% csrf_token %}
 
-            {{ form.as_p }}
+                        {{ form|bootstrap }}
 
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </form>
-    </div>
-    <div class="col-6">
-        <h1> Lista das Sessões de Roupas </h1>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Sessão</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for sessoes in sessao %}
-                <tr>
-                    <th scope="row">{{ sessoes.id }}</th>
-                    <td>{{ sessoes.sessao }}</td>
-                    <td><a href="{% url 'cadastro_sessao_update' sessoes.id %}"> Editar </a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-<div>
+                        <button type="submit" class="btn btn-success"> Cadastrar </button>
+                        <a href="{% url 'financeiro_aluguel_delete' aluguel.id %}"
+                        class="btn btn-danger">Deletar</a>
+                </form>
+        </div>
+</div>
 
 {% endblock main %}
