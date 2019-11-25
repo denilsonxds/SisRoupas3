@@ -1,6 +1,68 @@
 {% extends 'website/base.html' %}
+{% load static %}
 
 {% block main %}
+    <div class="row">
+        <div class="col-8">
+            <h1>Sistema de Alugueis de Roupas</h1>
+            <span>Trabalhando para garantir o pão</span>
+        </div>
+        <div class="col-4">
+            <img src="{% static 'img/roupas.jpg' %}" alt="SisRoupas">
+        </div>
+    </div>
 
-    <h1>Seja Bem Vindo ao Website</h1>
+    {% include 'website/menu.html' %}
+
+    <br><br>
+    <div class="row">
+        <div class="col-6">
+            Estamos a servir com total indisponibilidade todos os deserviços, sendo assim, somos dotados de prazer
+            de servir apenas serviços qualificados, pois repudiamos o irrepudiável, fazendo com que nos tornemos
+            um diferencial no diferente. Roupas de grif com cara de pirata mas sendo 300% original, se rasgar tem
+            multa.
+        </div>
+        <div class="col-6">
+            Contando com a ajuda dos mais qualificados atendentes coletados no jovem aprendiz, se faz assim carente
+            um atendimento de qualidade, o que fez com que surgisse a necessidade desse sistema, estagiários de todos
+            os arredores tem decidido não se envolver em tal diálogo, pois opinião desnecessária gera desempregados.
+        </div>
+    </div><hr><hr>
+
+    <div class="row">
+        <div class="col-4">
+            Com um estoque completo e diferente no sentido da palavra, a loga KeroRoupas resolveu inovar e 
+            criar um sistema SisRoupas para gerenciar suas roupas de forma efetiva e completa (desculpa ainda
+            falta uma parte do sistema)
+        </div>
+        <div class="col-4">
+            <figure>
+                <img src="{% static 'img/imagem1.jpg' %}" alt="SisRoupas">
+                <figcaption>Moça não inclusa</figcaption>
+            </figure>
+            
+        </div>
+        <div class="col-4">
+            Roupas com texturas exuberantes de florzinhas, ou roupas exoticas com cara de onça temos aqui tbm,
+            além disso temos em nossas lojas roupas infantis e adultas, enfim, para todas as idades, venha para a
+            KeroRoupas agora mesmo e curta o melhor da vida.
+        </div>
+    </div><hr><hr>
+
+    <div class="row">
+        <div class="col-6">
+            Estamos a servir com total indisponibilidade todos os deserviços, sendo assim, somos dotados de prazer
+            de servir apenas serviços qualificados, pois repudiamos o irrepudiável, fazendo com que nos tornemos
+            um diferencial no diferente. Roupas de grif com cara de pirata mas sendo 300% original, se rasgar tem
+            multa.
+        </div>
+        <div class="col-6">
+            Contando com a ajuda dos mais qualificados atendentes coletados no jovem aprendiz, se faz assim carente
+            um atendimento de qualidade, o que fez com que surgisse a necessidade desse sistema, estagiários de todos
+            os arredores tem decidido não se envolver em tal diálogo, pois opinião desnecessária gera desempregados.
+        </div>
+    </div><hr>
+
+    {% include 'website/footer.html' %}
+
 {% endblock %}
