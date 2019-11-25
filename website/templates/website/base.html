@@ -14,8 +14,19 @@
 <body>
     
     <div class="container">
-        {% block main %}
-        {% endblock %}
-    </div
+        <div class="row row-space">
+            <div class="col-8">
+                <h1>Sistema de Alugueis de Roupas</h1>
+                <span>Trabalhando para garantir o pão</span>
+            </div>
+            <div class="col-4">
+                <img src="{% static 'img/roupas.jpg' %}" alt="SisRoupas" width="320" height="205">
+            </div>
+        </div>
+    </div>
+
+    {% include 'website/menu.html' %}
+    {% block main %}
+    {% endblock %}
 </body>
 </html>

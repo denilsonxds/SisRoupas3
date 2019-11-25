@@ -7,3 +7,15 @@
 .row-space{
     margin-top: 25px;
 }
+
+.img{
+    width: 320px;
+    height: 200px;
+    margin-left: 10px;
+}
+
+.p{
+    text-align: justify;
+    font-family: sans-serif;
+    margin-left: 25px;
+}

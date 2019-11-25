@@ -1,0 +1,35 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block main %}
+    <br>
+    <div class="row">
+        <div class="col-4">
+            <p class="p-align">Camisa de Grife</p>
+            <img src="{% static 'img/grife.jpg' %}" alt="SisRoupas" class="img">>
+        </div>
+        <div class="col-4">
+            <p>Camisa Original</p>
+            <img src="{% static 'img/original.jpg' %}" alt="SisRoupas" class="img">
+        </div>
+        <div class="col-4">
+            <p>Calça da Moda Feminina</p>
+            <img src="{% static 'img/calca_fem.jpg' %}" alt="SisRoupas" class="img">>
+        </div>
+
+    </div>
+        <div class="row">
+        <div class="col-4">
+            <p>Camisa Estampada</p>
+            <img src="{% static 'img/estampa.jpg' %}" alt="SisRoupas" class="img">>
+        </div>
+        <div class="col-4">
+            <p>Calção Esportivo</p>
+            <img src="{% static 'img/calcao.jpg' %}" alt="SisRoupas" class="img">>
+        </div>
+        <div class="col-4">
+            <p>Blusa Feminina</p>
+            <img src="{% static 'img/blusa.jpg' %}" alt="SisRoupas" class="img">>
+        </div>
+    </div>
+{% endblock %}
