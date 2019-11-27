@@ -1,0 +1,11 @@
+
+.img{
+  display: inline-block;
+  float: left;
+  padding-right: 100px;
+}
+
+HTML, body {
+  background-color: lightslategray;
+
+}

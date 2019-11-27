@@ -1,20 +1,33 @@
 {% extends 'website/base.html' %}
 {% load static %}
-
+<link rel="stylesheet" href="{% static 'bootstrap/css/sla.css' %}">
 {% block main %}
+    
     <br>
     <div class="row">
         <div class="col-4">
-            <p class="p-align">Camisa de Grife</p>
-            <img src="{% static 'img/grife.jpg' %}" alt="SisRoupas" class="img">>
+            <figure class="figure">
+                <img src="{% static 'img/grife.jpg' %}" alt="Camisa de grife" 
+                style="display: inline-block; float: right; padding-right: 100px;">
+                <figcaption class="figure-caption text-right">Camisa de Grife</figcaption>
+            </figure>
         </div>
         <div class="col-4">
-            <p>Camisa Original</p>
-            <img src="{% static 'img/original.jpg' %}" alt="SisRoupas" class="img">
+            <figure class="figure">
+                <img src="{% static 'img/original.jpg' %}" class="img" alt="Camisa de grife"
+                style="display: inline-block; float: right; padding-right: 100px;">
+                <figcaption class="figure-caption text-right">Camisa 100% Original</figcaption>
+            </figure>
+        </div>
         </div>
         <div class="col-4">
-            <p>Calça da Moda Feminina</p>
-            <img src="{% static 'img/calca_fem.jpg' %}" alt="SisRoupas" class="img">>
+        <div class="col-4">
+            <figure class="figure">
+                <img src="{% static 'img/original.jpg' %}" class="img" alt="Camisa de grife"
+                style="display: inline-block; float: right; padding-right: 100px;">
+                <figcaption class="figure-caption text-right">Camisa 100% Original</figcaption>
+            </figure>
+        </div>
         </div>
 
     </div>
