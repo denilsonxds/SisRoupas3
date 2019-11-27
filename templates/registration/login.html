@@ -2,39 +2,57 @@
 
 {% block main %}
 
-{% if form.errors %}
-<p>Usuário ou Senha inválidos. Por favor, tente novamente.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Sua conta não tem acesso a esta página. Para prosseguir,
-     faça o login com uma conta que tenha acesso.</p>
-    {% else %}
-    <p>Faça o login para ver esta página.</p>
+<div style="text-align: center; font-size: larger;">
+    <strong><h2 style="font-family: sans-serif;">SisRoupas</h2></strong>
+    {% if form.errors %}
+    <p class="font-weight-lighter" style="color: red;">Usuário ou Senha inválidos. Por favor, tente novamente.</p>
     {% endif %}
-{% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p class="font-weight-lighter">Sua conta não tem acesso a esta página. Para prosseguir,
+        faça o login com uma conta que tenha acesso.</p>
+        {% else %}
+        <p class="font-weight-lighter">Faça o login para ver esta página.</p>
+        {% endif %}
+    {% endif %}
+<div>
 
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
+    <div>
+        <div class="control-group">
+            <label class="control-label" for="id_username">
+                {{ form.username.label_tag }}
+            </label>
+            <div class="controls">
+                {{ form.username }}
+            </div>
+        </div>
 
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
+        <div class="control-group">
+            <label class="control-label" for="id_password">
+                {{ form.password.label_tag }}
+            </label>
+            <div class="controls">
+                {{ form.password }}
+            </div>
+        </div>
 
-</table>
+        <div class="control-group">
+            <div class="controls">
+            <br>
+                <button type="submit" class="btn btn-info">Login</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+        </div>
+    </div>
 
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Esqueceu sua Senha?</a></p>
+<strong><p class="font-weight-lighter"><a href="{% url 'password_reset' %}">Esqueceu sua Senha?</a></p></strong>
 
 {% endblock %}
+
+
